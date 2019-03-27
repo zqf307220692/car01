@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.UserMapper">
+
+    <select id="getUserById" resultType="com.zb.entity.User">
+        select
+                uId as uId,
+                uloginName as uloginName,
+                uPwd as uPwd,
+                uEmail as uEmail,
+                uPerson as uPerson,
+                uPhone as uPhone,
+                uPicture as uPicture,
+                uCity as uCity,
+                uVipSign as uVipSign,
+                uIdent as uIdent,
+                uState as uState
+        from user
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getUserListByMap" resultType="com.zb.entity.User" parameterType="java.util.Map">
+        select
+                uId as uId,
+                uloginName as uloginName,
+                uPwd as uPwd,
+                uEmail as uEmail,
+                uPerson as uPerson,
+                uPhone as uPhone,
+                uPicture as uPicture,
+                uCity as uCity,
+                uVipSign as uVipSign,
+                uIdent as uIdent,
+                uState as uState
+        from user
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="uloginName != null and uloginName!=''">
+                    and uloginName=#{uloginName}
+                </if>
+                <if test="uPwd != null and uPwd!=''">
+                    and uPwd=#{uPwd}
+                </if>
+                <if test="uEmail != null and uEmail!=''">
+                    and uEmail=#{uEmail}
+                </if>
+                <if test="uPerson != null and uPerson!=''">
+                    and uPerson=#{uPerson}
+                </if>
+                <if test="uPhone != null and uPhone!=''">
+                    and uPhone=#{uPhone}
+                </if>
+                <if test="uPicture != null and uPicture!=''">
+                    and uPicture=#{uPicture}
+                </if>
+                <if test="uCity != null and uCity!=''">
+                    and uCity=#{uCity}
+                </if>
+                <if test="uVipSign != null and uVipSign!=''">
+                    and uVipSign=#{uVipSign}
+                </if>
+                <if test="uIdent != null and uIdent!=''">
+                    and uIdent=#{uIdent}
+                </if>
+                <if test="uState != null and uState!=''">
+                    and uState=#{uState}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getUserCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from user
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="uloginName != null and uloginName!=''">
+                    and uloginName=#{uloginName}
+                </if>
+                <if test="uPwd != null and uPwd!=''">
+                    and uPwd=#{uPwd}
+                </if>
+                <if test="uEmail != null and uEmail!=''">
+                    and uEmail=#{uEmail}
+                </if>
+                <if test="uPerson != null and uPerson!=''">
+                    and uPerson=#{uPerson}
+                </if>
+                <if test="uPhone != null and uPhone!=''">
+                    and uPhone=#{uPhone}
+                </if>
+                <if test="uPicture != null and uPicture!=''">
+                    and uPicture=#{uPicture}
+                </if>
+                <if test="uCity != null and uCity!=''">
+                    and uCity=#{uCity}
+                </if>
+                <if test="uVipSign != null and uVipSign!=''">
+                    and uVipSign=#{uVipSign}
+                </if>
+                <if test="uIdent != null and uIdent!=''">
+                    and uIdent=#{uIdent}
+                </if>
+                <if test="uState != null and uState!=''">
+                    and uState=#{uState}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertUser" parameterType="com.zb.entity.User">
+        insert into user(
+                        uId,
+                        uloginName,
+                        uPwd,
+                        uEmail,
+                        uPerson,
+                        uPhone,
+                        uPicture,
+                        uCity,
+                        uVipSign,
+                        uIdent,
+                        uState)
+        values(
+                     #{uId},
+                     #{uloginName},
+                     #{uPwd},
+                     #{uEmail},
+                     #{uPerson},
+                     #{uPhone},
+                     #{uPicture},
+                     #{uCity},
+                     #{uVipSign},
+                     #{uIdent},
+                    #{uState})
+    </insert>
+
+    <update id="updateUser" parameterType="com.zb.entity.User">
+        update user
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="uId != null and uId!=''">
+                            uId=#{uId},
+                        </if>
+                        <if test="uloginName != null and uloginName!=''">
+                            uloginName=#{uloginName},
+                        </if>
+                        <if test="uPwd != null and uPwd!=''">
+                            uPwd=#{uPwd},
+                        </if>
+                        <if test="uEmail != null and uEmail!=''">
+                            uEmail=#{uEmail},
+                        </if>
+                        <if test="uPerson != null and uPerson!=''">
+                            uPerson=#{uPerson},
+                        </if>
+                        <if test="uPhone != null and uPhone!=''">
+                            uPhone=#{uPhone},
+                        </if>
+                        <if test="uPicture != null and uPicture!=''">
+                            uPicture=#{uPicture},
+                        </if>
+                        <if test="uCity != null and uCity!=''">
+                            uCity=#{uCity},
+                        </if>
+                        <if test="uVipSign != null and uVipSign!=''">
+                            uVipSign=#{uVipSign},
+                        </if>
+                        <if test="uIdent != null and uIdent!=''">
+                            uIdent=#{uIdent},
+                        </if>
+                        <if test="uState != null and uState!=''">
+                            uState=#{uState}
+                        </if>
+        </trim>
+    </update>
+</mapper>

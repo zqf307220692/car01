@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.ModelMapper">
+
+    <select id="getModelById" resultType="com.zb.entity.Model">
+        select
+                moId as moId,
+                moBrand as moBrand,
+                moName as moName
+        from model
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getModelListByMap" resultType="com.zb.entity.Model" parameterType="java.util.Map">
+        select
+                moId as moId,
+                moBrand as moBrand,
+                moName as moName
+        from model
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="moId != null and moId!=''">
+                    and moId=#{moId}
+                </if>
+                <if test="moBrand != null and moBrand!=''">
+                    and moBrand=#{moBrand}
+                </if>
+                <if test="moName != null and moName!=''">
+                    and moName=#{moName}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getModelCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from model
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="moId != null and moId!=''">
+                    and moId=#{moId}
+                </if>
+                <if test="moBrand != null and moBrand!=''">
+                    and moBrand=#{moBrand}
+                </if>
+                <if test="moName != null and moName!=''">
+                    and moName=#{moName}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertModel" parameterType="com.zb.entity.Model">
+        insert into model(
+                        moId,
+                        moBrand,
+                        moName)
+        values(
+                     #{moId},
+                     #{moBrand},
+                    #{moName})
+    </insert>
+
+    <update id="updateModel" parameterType="com.zb.entity.Model">
+        update model
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="moId != null and moId!=''">
+                            moId=#{moId},
+                        </if>
+                        <if test="moBrand != null and moBrand!=''">
+                            moBrand=#{moBrand},
+                        </if>
+                        <if test="moName != null and moName!=''">
+                            moName=#{moName}
+                        </if>
+        </trim>
+    </update>
+</mapper>

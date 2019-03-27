@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.PingguMapper">
+
+    <select id="getPingguById" resultType="com.zb.entity.Pinggu">
+        select
+                pgId as pgId,
+                mId as mId,
+                tId as tId,
+                pgDate as pgDate,
+                pgLicheng as pgLicheng,
+                pgPhone as pgPhone,
+                pgTime as pgTime,
+                pgPrice as pgPrice
+        from pinggu
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getPingguListByMap" resultType="com.zb.entity.Pinggu" parameterType="java.util.Map">
+        select
+                pgId as pgId,
+                mId as mId,
+                tId as tId,
+                pgDate as pgDate,
+                pgLicheng as pgLicheng,
+                pgPhone as pgPhone,
+                pgTime as pgTime,
+                pgPrice as pgPrice
+        from pinggu
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="pgId != null and pgId!=''">
+                    and pgId=#{pgId}
+                </if>
+                <if test="mId != null and mId!=''">
+                    and mId=#{mId}
+                </if>
+                <if test="tId != null and tId!=''">
+                    and tId=#{tId}
+                </if>
+                <if test="pgDate != null and pgDate!=''">
+                    and pgDate=#{pgDate}
+                </if>
+                <if test="pgLicheng != null and pgLicheng!=''">
+                    and pgLicheng=#{pgLicheng}
+                </if>
+                <if test="pgPhone != null and pgPhone!=''">
+                    and pgPhone=#{pgPhone}
+                </if>
+                <if test="pgTime != null and pgTime!=''">
+                    and pgTime=#{pgTime}
+                </if>
+                <if test="pgPrice != null and pgPrice!=''">
+                    and pgPrice=#{pgPrice}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getPingguCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from pinggu
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="pgId != null and pgId!=''">
+                    and pgId=#{pgId}
+                </if>
+                <if test="mId != null and mId!=''">
+                    and mId=#{mId}
+                </if>
+                <if test="tId != null and tId!=''">
+                    and tId=#{tId}
+                </if>
+                <if test="pgDate != null and pgDate!=''">
+                    and pgDate=#{pgDate}
+                </if>
+                <if test="pgLicheng != null and pgLicheng!=''">
+                    and pgLicheng=#{pgLicheng}
+                </if>
+                <if test="pgPhone != null and pgPhone!=''">
+                    and pgPhone=#{pgPhone}
+                </if>
+                <if test="pgTime != null and pgTime!=''">
+                    and pgTime=#{pgTime}
+                </if>
+                <if test="pgPrice != null and pgPrice!=''">
+                    and pgPrice=#{pgPrice}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertPinggu" parameterType="com.zb.entity.Pinggu">
+        insert into pinggu(
+                        pgId,
+                        mId,
+                        tId,
+                        pgDate,
+                        pgLicheng,
+                        pgPhone,
+                        pgTime,
+                        pgPrice)
+        values(
+                     #{pgId},
+                     #{mId},
+                     #{tId},
+                     #{pgDate},
+                     #{pgLicheng},
+                     #{pgPhone},
+                     #{pgTime},
+                    #{pgPrice})
+    </insert>
+
+    <update id="updatePinggu" parameterType="com.zb.entity.Pinggu">
+        update pinggu
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="pgId != null and pgId!=''">
+                            pgId=#{pgId},
+                        </if>
+                        <if test="mId != null and mId!=''">
+                            mId=#{mId},
+                        </if>
+                        <if test="tId != null and tId!=''">
+                            tId=#{tId},
+                        </if>
+                        <if test="pgDate != null and pgDate!=''">
+                            pgDate=#{pgDate},
+                        </if>
+                        <if test="pgLicheng != null and pgLicheng!=''">
+                            pgLicheng=#{pgLicheng},
+                        </if>
+                        <if test="pgPhone != null and pgPhone!=''">
+                            pgPhone=#{pgPhone},
+                        </if>
+                        <if test="pgTime != null and pgTime!=''">
+                            pgTime=#{pgTime},
+                        </if>
+                        <if test="pgPrice != null and pgPrice!=''">
+                            pgPrice=#{pgPrice}
+                        </if>
+        </trim>
+    </update>
+</mapper>

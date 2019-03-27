@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.CarrentMapper">
+
+    <select id="getCarrentById" resultType="com.zb.entity.Carrent">
+        select
+                crId as crId,
+                aId as aId,
+                mId as mId,
+                tId as tId,
+                crDateMoney as crDateMoney,
+                crMonMoney as crMonMoney,
+                crPicture1 as crPicture1,
+                crPicture2 as crPicture2,
+                crPicture3 as crPicture3,
+                crDescribe as crDescribe,
+                crTime as crTime,
+                uId as uId,
+                crState as crState
+        from carrent
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getCarrentListByMap" resultType="com.zb.entity.Carrent" parameterType="java.util.Map">
+        select
+                crId as crId,
+                aId as aId,
+                mId as mId,
+                tId as tId,
+                crDateMoney as crDateMoney,
+                crMonMoney as crMonMoney,
+                crPicture1 as crPicture1,
+                crPicture2 as crPicture2,
+                crPicture3 as crPicture3,
+                crDescribe as crDescribe,
+                crTime as crTime,
+                uId as uId,
+                crState as crState
+        from carrent
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="crId != null and crId!=''">
+                    and crId=#{crId}
+                </if>
+                <if test="aId != null and aId!=''">
+                    and aId=#{aId}
+                </if>
+                <if test="mId != null and mId!=''">
+                    and mId=#{mId}
+                </if>
+                <if test="tId != null and tId!=''">
+                    and tId=#{tId}
+                </if>
+                <if test="crDateMoney != null and crDateMoney!=''">
+                    and crDateMoney=#{crDateMoney}
+                </if>
+                <if test="crMonMoney != null and crMonMoney!=''">
+                    and crMonMoney=#{crMonMoney}
+                </if>
+                <if test="crPicture1 != null and crPicture1!=''">
+                    and crPicture1=#{crPicture1}
+                </if>
+                <if test="crPicture2 != null and crPicture2!=''">
+                    and crPicture2=#{crPicture2}
+                </if>
+                <if test="crPicture3 != null and crPicture3!=''">
+                    and crPicture3=#{crPicture3}
+                </if>
+                <if test="crDescribe != null and crDescribe!=''">
+                    and crDescribe=#{crDescribe}
+                </if>
+                <if test="crTime != null and crTime!=''">
+                    and crTime=#{crTime}
+                </if>
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="crState != null and crState!=''">
+                    and crState=#{crState}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getCarrentCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from carrent
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="crId != null and crId!=''">
+                    and crId=#{crId}
+                </if>
+                <if test="aId != null and aId!=''">
+                    and aId=#{aId}
+                </if>
+                <if test="mId != null and mId!=''">
+                    and mId=#{mId}
+                </if>
+                <if test="tId != null and tId!=''">
+                    and tId=#{tId}
+                </if>
+                <if test="crDateMoney != null and crDateMoney!=''">
+                    and crDateMoney=#{crDateMoney}
+                </if>
+                <if test="crMonMoney != null and crMonMoney!=''">
+                    and crMonMoney=#{crMonMoney}
+                </if>
+                <if test="crPicture1 != null and crPicture1!=''">
+                    and crPicture1=#{crPicture1}
+                </if>
+                <if test="crPicture2 != null and crPicture2!=''">
+                    and crPicture2=#{crPicture2}
+                </if>
+                <if test="crPicture3 != null and crPicture3!=''">
+                    and crPicture3=#{crPicture3}
+                </if>
+                <if test="crDescribe != null and crDescribe!=''">
+                    and crDescribe=#{crDescribe}
+                </if>
+                <if test="crTime != null and crTime!=''">
+                    and crTime=#{crTime}
+                </if>
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="crState != null and crState!=''">
+                    and crState=#{crState}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertCarrent" parameterType="com.zb.entity.Carrent">
+        insert into carrent(
+                        crId,
+                        aId,
+                        mId,
+                        tId,
+                        crDateMoney,
+                        crMonMoney,
+                        crPicture1,
+                        crPicture2,
+                        crPicture3,
+                        crDescribe,
+                        crTime,
+                        uId,
+                        crState)
+        values(
+                     #{crId},
+                     #{aId},
+                     #{mId},
+                     #{tId},
+                     #{crDateMoney},
+                     #{crMonMoney},
+                     #{crPicture1},
+                     #{crPicture2},
+                     #{crPicture3},
+                     #{crDescribe},
+                     #{crTime},
+                     #{uId},
+                    #{crState})
+    </insert>
+
+    <update id="updateCarrent" parameterType="com.zb.entity.Carrent">
+        update carrent
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="crId != null and crId!=''">
+                            crId=#{crId},
+                        </if>
+                        <if test="aId != null and aId!=''">
+                            aId=#{aId},
+                        </if>
+                        <if test="mId != null and mId!=''">
+                            mId=#{mId},
+                        </if>
+                        <if test="tId != null and tId!=''">
+                            tId=#{tId},
+                        </if>
+                        <if test="crDateMoney != null and crDateMoney!=''">
+                            crDateMoney=#{crDateMoney},
+                        </if>
+                        <if test="crMonMoney != null and crMonMoney!=''">
+                            crMonMoney=#{crMonMoney},
+                        </if>
+                        <if test="crPicture1 != null and crPicture1!=''">
+                            crPicture1=#{crPicture1},
+                        </if>
+                        <if test="crPicture2 != null and crPicture2!=''">
+                            crPicture2=#{crPicture2},
+                        </if>
+                        <if test="crPicture3 != null and crPicture3!=''">
+                            crPicture3=#{crPicture3},
+                        </if>
+                        <if test="crDescribe != null and crDescribe!=''">
+                            crDescribe=#{crDescribe},
+                        </if>
+                        <if test="crTime != null and crTime!=''">
+                            crTime=#{crTime},
+                        </if>
+                        <if test="uId != null and uId!=''">
+                            uId=#{uId},
+                        </if>
+                        <if test="crState != null and crState!=''">
+                            crState=#{crState}
+                        </if>
+        </trim>
+    </update>
+</mapper>

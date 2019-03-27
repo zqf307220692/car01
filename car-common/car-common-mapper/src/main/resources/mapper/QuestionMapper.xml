@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.QuestionMapper">
+
+    <select id="getQuestionById" resultType="com.zb.entity.Question">
+        select
+                quId as quId,
+                quQuestion as quQuestion,
+                quAnswer as quAnswer,
+                quCreateTime as quCreateTime
+        from question
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getQuestionListByMap" resultType="com.zb.entity.Question" parameterType="java.util.Map">
+        select
+                quId as quId,
+                quQuestion as quQuestion,
+                quAnswer as quAnswer,
+                quCreateTime as quCreateTime
+        from question
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="quId != null and quId!=''">
+                    and quId=#{quId}
+                </if>
+                <if test="quQuestion != null and quQuestion!=''">
+                    and quQuestion=#{quQuestion}
+                </if>
+                <if test="quAnswer != null and quAnswer!=''">
+                    and quAnswer=#{quAnswer}
+                </if>
+                <if test="quCreateTime != null and quCreateTime!=''">
+                    and quCreateTime=#{quCreateTime}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getQuestionCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from question
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="quId != null and quId!=''">
+                    and quId=#{quId}
+                </if>
+                <if test="quQuestion != null and quQuestion!=''">
+                    and quQuestion=#{quQuestion}
+                </if>
+                <if test="quAnswer != null and quAnswer!=''">
+                    and quAnswer=#{quAnswer}
+                </if>
+                <if test="quCreateTime != null and quCreateTime!=''">
+                    and quCreateTime=#{quCreateTime}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertQuestion" parameterType="com.zb.entity.Question">
+        insert into question(
+                        quId,
+                        quQuestion,
+                        quAnswer,
+                        quCreateTime)
+        values(
+                     #{quId},
+                     #{quQuestion},
+                     #{quAnswer},
+                    #{quCreateTime})
+    </insert>
+
+    <update id="updateQuestion" parameterType="com.zb.entity.Question">
+        update question
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="quId != null and quId!=''">
+                            quId=#{quId},
+                        </if>
+                        <if test="quQuestion != null and quQuestion!=''">
+                            quQuestion=#{quQuestion},
+                        </if>
+                        <if test="quAnswer != null and quAnswer!=''">
+                            quAnswer=#{quAnswer},
+                        </if>
+                        <if test="quCreateTime != null and quCreateTime!=''">
+                            quCreateTime=#{quCreateTime}
+                        </if>
+        </trim>
+    </update>
+</mapper>

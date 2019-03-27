@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.GarageMapper">
+
+    <select id="getGarageById" resultType="com.zb.entity.Garage">
+        select
+                gId as gId,
+                gName as gName,
+                gPerson as gPerson,
+                gSaleName as gSaleName,
+                gSalePicture as gSalePicture,
+                gSalePhone as gSalePhone,
+                gTel as gTel,
+                gPhone as gPhone,
+                gAddress as gAddress,
+                gIntroduce as gIntroduce,
+                gPicture as gPicture,
+                gBusinessId as gBusinessId,
+                gState as gState
+        from garage
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getGarageListByMap" resultType="com.zb.entity.Garage" parameterType="java.util.Map">
+        select
+                gId as gId,
+                gName as gName,
+                gPerson as gPerson,
+                gSaleName as gSaleName,
+                gSalePicture as gSalePicture,
+                gSalePhone as gSalePhone,
+                gTel as gTel,
+                gPhone as gPhone,
+                gAddress as gAddress,
+                gIntroduce as gIntroduce,
+                gPicture as gPicture,
+                gBusinessId as gBusinessId,
+                gState as gState
+        from garage
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="gId != null and gId!=''">
+                    and gId=#{gId}
+                </if>
+                <if test="gName != null and gName!=''">
+                    and gName=#{gName}
+                </if>
+                <if test="gPerson != null and gPerson!=''">
+                    and gPerson=#{gPerson}
+                </if>
+                <if test="gSaleName != null and gSaleName!=''">
+                    and gSaleName=#{gSaleName}
+                </if>
+                <if test="gSalePicture != null and gSalePicture!=''">
+                    and gSalePicture=#{gSalePicture}
+                </if>
+                <if test="gSalePhone != null and gSalePhone!=''">
+                    and gSalePhone=#{gSalePhone}
+                </if>
+                <if test="gTel != null and gTel!=''">
+                    and gTel=#{gTel}
+                </if>
+                <if test="gPhone != null and gPhone!=''">
+                    and gPhone=#{gPhone}
+                </if>
+                <if test="gAddress != null and gAddress!=''">
+                    and gAddress=#{gAddress}
+                </if>
+                <if test="gIntroduce != null and gIntroduce!=''">
+                    and gIntroduce=#{gIntroduce}
+                </if>
+                <if test="gPicture != null and gPicture!=''">
+                    and gPicture=#{gPicture}
+                </if>
+                <if test="gBusinessId != null and gBusinessId!=''">
+                    and gBusinessId=#{gBusinessId}
+                </if>
+                <if test="gState != null and gState!=''">
+                    and gState=#{gState}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getGarageCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from garage
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="gId != null and gId!=''">
+                    and gId=#{gId}
+                </if>
+                <if test="gName != null and gName!=''">
+                    and gName=#{gName}
+                </if>
+                <if test="gPerson != null and gPerson!=''">
+                    and gPerson=#{gPerson}
+                </if>
+                <if test="gSaleName != null and gSaleName!=''">
+                    and gSaleName=#{gSaleName}
+                </if>
+                <if test="gSalePicture != null and gSalePicture!=''">
+                    and gSalePicture=#{gSalePicture}
+                </if>
+                <if test="gSalePhone != null and gSalePhone!=''">
+                    and gSalePhone=#{gSalePhone}
+                </if>
+                <if test="gTel != null and gTel!=''">
+                    and gTel=#{gTel}
+                </if>
+                <if test="gPhone != null and gPhone!=''">
+                    and gPhone=#{gPhone}
+                </if>
+                <if test="gAddress != null and gAddress!=''">
+                    and gAddress=#{gAddress}
+                </if>
+                <if test="gIntroduce != null and gIntroduce!=''">
+                    and gIntroduce=#{gIntroduce}
+                </if>
+                <if test="gPicture != null and gPicture!=''">
+                    and gPicture=#{gPicture}
+                </if>
+                <if test="gBusinessId != null and gBusinessId!=''">
+                    and gBusinessId=#{gBusinessId}
+                </if>
+                <if test="gState != null and gState!=''">
+                    and gState=#{gState}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertGarage" parameterType="com.zb.entity.Garage">
+        insert into garage(
+                        gId,
+                        gName,
+                        gPerson,
+                        gSaleName,
+                        gSalePicture,
+                        gSalePhone,
+                        gTel,
+                        gPhone,
+                        gAddress,
+                        gIntroduce,
+                        gPicture,
+                        gBusinessId,
+                        gState)
+        values(
+                     #{gId},
+                     #{gName},
+                     #{gPerson},
+                     #{gSaleName},
+                     #{gSalePicture},
+                     #{gSalePhone},
+                     #{gTel},
+                     #{gPhone},
+                     #{gAddress},
+                     #{gIntroduce},
+                     #{gPicture},
+                     #{gBusinessId},
+                    #{gState})
+    </insert>
+
+    <update id="updateGarage" parameterType="com.zb.entity.Garage">
+        update garage
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="gId != null and gId!=''">
+                            gId=#{gId},
+                        </if>
+                        <if test="gName != null and gName!=''">
+                            gName=#{gName},
+                        </if>
+                        <if test="gPerson != null and gPerson!=''">
+                            gPerson=#{gPerson},
+                        </if>
+                        <if test="gSaleName != null and gSaleName!=''">
+                            gSaleName=#{gSaleName},
+                        </if>
+                        <if test="gSalePicture != null and gSalePicture!=''">
+                            gSalePicture=#{gSalePicture},
+                        </if>
+                        <if test="gSalePhone != null and gSalePhone!=''">
+                            gSalePhone=#{gSalePhone},
+                        </if>
+                        <if test="gTel != null and gTel!=''">
+                            gTel=#{gTel},
+                        </if>
+                        <if test="gPhone != null and gPhone!=''">
+                            gPhone=#{gPhone},
+                        </if>
+                        <if test="gAddress != null and gAddress!=''">
+                            gAddress=#{gAddress},
+                        </if>
+                        <if test="gIntroduce != null and gIntroduce!=''">
+                            gIntroduce=#{gIntroduce},
+                        </if>
+                        <if test="gPicture != null and gPicture!=''">
+                            gPicture=#{gPicture},
+                        </if>
+                        <if test="gBusinessId != null and gBusinessId!=''">
+                            gBusinessId=#{gBusinessId},
+                        </if>
+                        <if test="gState != null and gState!=''">
+                            gState=#{gState}
+                        </if>
+        </trim>
+    </update>
+</mapper>

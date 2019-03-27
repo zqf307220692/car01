@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.VipMapper">
+
+    <select id="getVipById" resultType="com.zb.entity.Vip">
+        select
+                vId as vId,
+                uId as uId,
+                vStart as vStart,
+                vEnd as vEnd
+        from vip
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getVipListByMap" resultType="com.zb.entity.Vip" parameterType="java.util.Map">
+        select
+                vId as vId,
+                uId as uId,
+                vStart as vStart,
+                vEnd as vEnd
+        from vip
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="vId != null and vId!=''">
+                    and vId=#{vId}
+                </if>
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="vStart != null and vStart!=''">
+                    and vStart=#{vStart}
+                </if>
+                <if test="vEnd != null and vEnd!=''">
+                    and vEnd=#{vEnd}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getVipCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from vip
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="vId != null and vId!=''">
+                    and vId=#{vId}
+                </if>
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="vStart != null and vStart!=''">
+                    and vStart=#{vStart}
+                </if>
+                <if test="vEnd != null and vEnd!=''">
+                    and vEnd=#{vEnd}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertVip" parameterType="com.zb.entity.Vip">
+        insert into vip(
+                        vId,
+                        uId,
+                        vStart,
+                        vEnd)
+        values(
+                     #{vId},
+                     #{uId},
+                     #{vStart},
+                    #{vEnd})
+    </insert>
+
+    <update id="updateVip" parameterType="com.zb.entity.Vip">
+        update vip
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="vId != null and vId!=''">
+                            vId=#{vId},
+                        </if>
+                        <if test="uId != null and uId!=''">
+                            uId=#{uId},
+                        </if>
+                        <if test="vStart != null and vStart!=''">
+                            vStart=#{vStart},
+                        </if>
+                        <if test="vEnd != null and vEnd!=''">
+                            vEnd=#{vEnd}
+                        </if>
+        </trim>
+    </update>
+</mapper>

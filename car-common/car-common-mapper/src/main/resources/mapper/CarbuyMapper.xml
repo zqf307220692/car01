@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zb.mapper.CarbuyMapper">
+
+    <select id="getCarbuyById" resultType="com.zb.entity.Carbuy">
+        select
+                cbId as cbId,
+                aId as aId,
+                mId as mId,
+                tId as tId,
+                cbMoney as cbMoney,
+                cbOfferMoney as cbOfferMoney,
+                cbPurchasetax as cbPurchasetax,
+                cbJieSheng as cbJieSheng,
+                cbColor as cbColor,
+                cbPaiLiang as cbPaiLiang,
+                cbBianSu as cbBianSu,
+                cbDate as cbDate,
+                cbLiCheng as cbLiCheng,
+                cbNeiAndWai as cbNeiAndWai,
+                cbBiaozhun as cbBiaozhun,
+                cbCompulsoryTime as cbCompulsoryTime,
+                cbValidity as cbValidity,
+                cbPicture1 as cbPicture1,
+                cbPicture2 as cbPicture2,
+                cbPicture3 as cbPicture3,
+                cbPicture4 as cbPicture4,
+                cbDescribe as cbDescribe,
+                cbPopular as cbPopular,
+                cbTime as cbTime,
+                cbRecommend as cbRecommend,
+                uId as uId,
+                cbState as cbState
+        from carbuy
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getCarbuyListByMap" resultType="com.zb.entity.Carbuy" parameterType="java.util.Map">
+        select
+                cbId as cbId,
+                aId as aId,
+                mId as mId,
+                tId as tId,
+                cbMoney as cbMoney,
+                cbOfferMoney as cbOfferMoney,
+                cbPurchasetax as cbPurchasetax,
+                cbJieSheng as cbJieSheng,
+                cbColor as cbColor,
+                cbPaiLiang as cbPaiLiang,
+                cbBianSu as cbBianSu,
+                cbDate as cbDate,
+                cbLiCheng as cbLiCheng,
+                cbNeiAndWai as cbNeiAndWai,
+                cbBiaozhun as cbBiaozhun,
+                cbCompulsoryTime as cbCompulsoryTime,
+                cbValidity as cbValidity,
+                cbPicture1 as cbPicture1,
+                cbPicture2 as cbPicture2,
+                cbPicture3 as cbPicture3,
+                cbPicture4 as cbPicture4,
+                cbDescribe as cbDescribe,
+                cbPopular as cbPopular,
+                cbTime as cbTime,
+                cbRecommend as cbRecommend,
+                uId as uId,
+                cbState as cbState
+        from carbuy
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="cbId != null and cbId!=''">
+                    and cbId=#{cbId}
+                </if>
+                <if test="aId != null and aId!=''">
+                    and aId=#{aId}
+                </if>
+                <if test="mId != null and mId!=''">
+                    and mId=#{mId}
+                </if>
+                <if test="tId != null and tId!=''">
+                    and tId=#{tId}
+                </if>
+                <if test="cbMoney != null and cbMoney!=''">
+                    and cbMoney=#{cbMoney}
+                </if>
+                <if test="cbOfferMoney != null and cbOfferMoney!=''">
+                    and cbOfferMoney=#{cbOfferMoney}
+                </if>
+                <if test="cbPurchasetax != null and cbPurchasetax!=''">
+                    and cbPurchasetax=#{cbPurchasetax}
+                </if>
+                <if test="cbJieSheng != null and cbJieSheng!=''">
+                    and cbJieSheng=#{cbJieSheng}
+                </if>
+                <if test="cbColor != null and cbColor!=''">
+                    and cbColor=#{cbColor}
+                </if>
+                <if test="cbPaiLiang != null and cbPaiLiang!=''">
+                    and cbPaiLiang=#{cbPaiLiang}
+                </if>
+                <if test="cbBianSu != null and cbBianSu!=''">
+                    and cbBianSu=#{cbBianSu}
+                </if>
+                <if test="cbDate != null and cbDate!=''">
+                    and cbDate=#{cbDate}
+                </if>
+                <if test="cbLiCheng != null and cbLiCheng!=''">
+                    and cbLiCheng=#{cbLiCheng}
+                </if>
+                <if test="cbNeiAndWai != null and cbNeiAndWai!=''">
+                    and cbNeiAndWai=#{cbNeiAndWai}
+                </if>
+                <if test="cbBiaozhun != null and cbBiaozhun!=''">
+                    and cbBiaozhun=#{cbBiaozhun}
+                </if>
+                <if test="cbCompulsoryTime != null and cbCompulsoryTime!=''">
+                    and cbCompulsoryTime=#{cbCompulsoryTime}
+                </if>
+                <if test="cbValidity != null and cbValidity!=''">
+                    and cbValidity=#{cbValidity}
+                </if>
+                <if test="cbPicture1 != null and cbPicture1!=''">
+                    and cbPicture1=#{cbPicture1}
+                </if>
+                <if test="cbPicture2 != null and cbPicture2!=''">
+                    and cbPicture2=#{cbPicture2}
+                </if>
+                <if test="cbPicture3 != null and cbPicture3!=''">
+                    and cbPicture3=#{cbPicture3}
+                </if>
+                <if test="cbPicture4 != null and cbPicture4!=''">
+                    and cbPicture4=#{cbPicture4}
+                </if>
+                <if test="cbDescribe != null and cbDescribe!=''">
+                    and cbDescribe=#{cbDescribe}
+                </if>
+                <if test="cbPopular != null and cbPopular!=''">
+                    and cbPopular=#{cbPopular}
+                </if>
+                <if test="cbTime != null and cbTime!=''">
+                    and cbTime=#{cbTime}
+                </if>
+                <if test="cbRecommend != null and cbRecommend!=''">
+                    and cbRecommend=#{cbRecommend}
+                </if>
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="cbState != null and cbState!=''">
+                    and cbState=#{cbState}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getCarbuyCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from carbuy
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="cbId != null and cbId!=''">
+                    and cbId=#{cbId}
+                </if>
+                <if test="aId != null and aId!=''">
+                    and aId=#{aId}
+                </if>
+                <if test="mId != null and mId!=''">
+                    and mId=#{mId}
+                </if>
+                <if test="tId != null and tId!=''">
+                    and tId=#{tId}
+                </if>
+                <if test="cbMoney != null and cbMoney!=''">
+                    and cbMoney=#{cbMoney}
+                </if>
+                <if test="cbOfferMoney != null and cbOfferMoney!=''">
+                    and cbOfferMoney=#{cbOfferMoney}
+                </if>
+                <if test="cbPurchasetax != null and cbPurchasetax!=''">
+                    and cbPurchasetax=#{cbPurchasetax}
+                </if>
+                <if test="cbJieSheng != null and cbJieSheng!=''">
+                    and cbJieSheng=#{cbJieSheng}
+                </if>
+                <if test="cbColor != null and cbColor!=''">
+                    and cbColor=#{cbColor}
+                </if>
+                <if test="cbPaiLiang != null and cbPaiLiang!=''">
+                    and cbPaiLiang=#{cbPaiLiang}
+                </if>
+                <if test="cbBianSu != null and cbBianSu!=''">
+                    and cbBianSu=#{cbBianSu}
+                </if>
+                <if test="cbDate != null and cbDate!=''">
+                    and cbDate=#{cbDate}
+                </if>
+                <if test="cbLiCheng != null and cbLiCheng!=''">
+                    and cbLiCheng=#{cbLiCheng}
+                </if>
+                <if test="cbNeiAndWai != null and cbNeiAndWai!=''">
+                    and cbNeiAndWai=#{cbNeiAndWai}
+                </if>
+                <if test="cbBiaozhun != null and cbBiaozhun!=''">
+                    and cbBiaozhun=#{cbBiaozhun}
+                </if>
+                <if test="cbCompulsoryTime != null and cbCompulsoryTime!=''">
+                    and cbCompulsoryTime=#{cbCompulsoryTime}
+                </if>
+                <if test="cbValidity != null and cbValidity!=''">
+                    and cbValidity=#{cbValidity}
+                </if>
+                <if test="cbPicture1 != null and cbPicture1!=''">
+                    and cbPicture1=#{cbPicture1}
+                </if>
+                <if test="cbPicture2 != null and cbPicture2!=''">
+                    and cbPicture2=#{cbPicture2}
+                </if>
+                <if test="cbPicture3 != null and cbPicture3!=''">
+                    and cbPicture3=#{cbPicture3}
+                </if>
+                <if test="cbPicture4 != null and cbPicture4!=''">
+                    and cbPicture4=#{cbPicture4}
+                </if>
+                <if test="cbDescribe != null and cbDescribe!=''">
+                    and cbDescribe=#{cbDescribe}
+                </if>
+                <if test="cbPopular != null and cbPopular!=''">
+                    and cbPopular=#{cbPopular}
+                </if>
+                <if test="cbTime != null and cbTime!=''">
+                    and cbTime=#{cbTime}
+                </if>
+                <if test="cbRecommend != null and cbRecommend!=''">
+                    and cbRecommend=#{cbRecommend}
+                </if>
+                <if test="uId != null and uId!=''">
+                    and uId=#{uId}
+                </if>
+                <if test="cbState != null and cbState!=''">
+                    and cbState=#{cbState}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertCarbuy" parameterType="com.zb.entity.Carbuy">
+        insert into carbuy(
+                        cbId,
+                        aId,
+                        mId,
+                        tId,
+                        cbMoney,
+                        cbOfferMoney,
+                        cbPurchasetax,
+                        cbJieSheng,
+                        cbColor,
+                        cbPaiLiang,
+                        cbBianSu,
+                        cbDate,
+                        cbLiCheng,
+                        cbNeiAndWai,
+                        cbBiaozhun,
+                        cbCompulsoryTime,
+                        cbValidity,
+                        cbPicture1,
+                        cbPicture2,
+                        cbPicture3,
+                        cbPicture4,
+                        cbDescribe,
+                        cbPopular,
+                        cbTime,
+                        cbRecommend,
+                        uId,
+                        cbState)
+        values(
+                     #{cbId},
+                     #{aId},
+                     #{mId},
+                     #{tId},
+                     #{cbMoney},
+                     #{cbOfferMoney},
+                     #{cbPurchasetax},
+                     #{cbJieSheng},
+                     #{cbColor},
+                     #{cbPaiLiang},
+                     #{cbBianSu},
+                     #{cbDate},
+                     #{cbLiCheng},
+                     #{cbNeiAndWai},
+                     #{cbBiaozhun},
+                     #{cbCompulsoryTime},
+                     #{cbValidity},
+                     #{cbPicture1},
+                     #{cbPicture2},
+                     #{cbPicture3},
+                     #{cbPicture4},
+                     #{cbDescribe},
+                     #{cbPopular},
+                     #{cbTime},
+                     #{cbRecommend},
+                     #{uId},
+                    #{cbState})
+    </insert>
+
+    <update id="updateCarbuy" parameterType="com.zb.entity.Carbuy">
+        update carbuy
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="cbId != null and cbId!=''">
+                            cbId=#{cbId},
+                        </if>
+                        <if test="aId != null and aId!=''">
+                            aId=#{aId},
+                        </if>
+                        <if test="mId != null and mId!=''">
+                            mId=#{mId},
+                        </if>
+                        <if test="tId != null and tId!=''">
+                            tId=#{tId},
+                        </if>
+                        <if test="cbMoney != null and cbMoney!=''">
+                            cbMoney=#{cbMoney},
+                        </if>
+                        <if test="cbOfferMoney != null and cbOfferMoney!=''">
+                            cbOfferMoney=#{cbOfferMoney},
+                        </if>
+                        <if test="cbPurchasetax != null and cbPurchasetax!=''">
+                            cbPurchasetax=#{cbPurchasetax},
+                        </if>
+                        <if test="cbJieSheng != null and cbJieSheng!=''">
+                            cbJieSheng=#{cbJieSheng},
+                        </if>
+                        <if test="cbColor != null and cbColor!=''">
+                            cbColor=#{cbColor},
+                        </if>
+                        <if test="cbPaiLiang != null and cbPaiLiang!=''">
+                            cbPaiLiang=#{cbPaiLiang},
+                        </if>
+                        <if test="cbBianSu != null and cbBianSu!=''">
+                            cbBianSu=#{cbBianSu},
+                        </if>
+                        <if test="cbDate != null and cbDate!=''">
+                            cbDate=#{cbDate},
+                        </if>
+                        <if test="cbLiCheng != null and cbLiCheng!=''">
+                            cbLiCheng=#{cbLiCheng},
+                        </if>
+                        <if test="cbNeiAndWai != null and cbNeiAndWai!=''">
+                            cbNeiAndWai=#{cbNeiAndWai},
+                        </if>
+                        <if test="cbBiaozhun != null and cbBiaozhun!=''">
+                            cbBiaozhun=#{cbBiaozhun},
+                        </if>
+                        <if test="cbCompulsoryTime != null and cbCompulsoryTime!=''">
+                            cbCompulsoryTime=#{cbCompulsoryTime},
+                        </if>
+                        <if test="cbValidity != null and cbValidity!=''">
+                            cbValidity=#{cbValidity},
+                        </if>
+                        <if test="cbPicture1 != null and cbPicture1!=''">
+                            cbPicture1=#{cbPicture1},
+                        </if>
+                        <if test="cbPicture2 != null and cbPicture2!=''">
+                            cbPicture2=#{cbPicture2},
+                        </if>
+                        <if test="cbPicture3 != null and cbPicture3!=''">
+                            cbPicture3=#{cbPicture3},
+                        </if>
+                        <if test="cbPicture4 != null and cbPicture4!=''">
+                            cbPicture4=#{cbPicture4},
+                        </if>
+                        <if test="cbDescribe != null and cbDescribe!=''">
+                            cbDescribe=#{cbDescribe},
+                        </if>
+                        <if test="cbPopular != null and cbPopular!=''">
+                            cbPopular=#{cbPopular},
+                        </if>
+                        <if test="cbTime != null and cbTime!=''">
+                            cbTime=#{cbTime},
+                        </if>
+                        <if test="cbRecommend != null and cbRecommend!=''">
+                            cbRecommend=#{cbRecommend},
+                        </if>
+                        <if test="uId != null and uId!=''">
+                            uId=#{uId},
+                        </if>
+                        <if test="cbState != null and cbState!=''">
+                            cbState=#{cbState}
+                        </if>
+        </trim>
+    </update>
+</mapper>
