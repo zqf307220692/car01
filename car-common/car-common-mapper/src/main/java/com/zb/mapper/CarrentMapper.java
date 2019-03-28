@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CarrentMapper {
 
-	public Carrent getCarrentById(@Param(value = "id") Long id)throws Exception;
+	public Carrent getCarrentById(@Param(value = "id") Integer id)throws Exception;
 
 	public List<Carrent>	getCarrentListByMap(Map<String,Object> param)throws Exception;
 
@@ -18,7 +18,7 @@ public interface CarrentMapper {
 
 	public Integer updateCarrent(Carrent carrent)throws Exception;
 
-	public Integer deleteCarrentById(@Param(value = "id") Long id)throws Exception;
+	public Integer deleteCarrentById(@Param(value = "id") Integer id)throws Exception;
 
 	public Integer batchDeleteCarrent(Map<String,List<String>> params);
 
