@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface AreaMapper {
-	//
+	//4353453453
 	public Area getAreaById(@Param(value = "id") Long id)throws Exception;
     //fff
 	public List<Area>	getAreaListByMap(Map<String,Object> param)throws Exception;
