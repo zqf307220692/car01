@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface GarageMapper {
-
+    
 	public Garage getGarageById(@Param(value = "id") Long id)throws Exception;
 
 	public List<Garage>	getGarageListByMap(Map<String,Object> param)throws Exception;
