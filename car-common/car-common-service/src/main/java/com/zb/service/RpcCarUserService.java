@@ -6,7 +6,7 @@ import com.zb.entity.User;
 public interface RpcCarUserService {
 
 
-    public User getUserLogin(String phone, String password) throws Exception;
+    public User getUserLogin(String uloginName, String uPwd) throws Exception;
 
     /**
      * 根据token 返回当前用户对象
