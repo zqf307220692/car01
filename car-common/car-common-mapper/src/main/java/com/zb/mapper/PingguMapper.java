@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PingguMapper {
 
-	public Pinggu getPingguById(@Param(value = "id") Long id)throws Exception;
+	public Pinggu getPingguById(@Param(value = "id") Integer id)throws Exception;
 
 	public List<Pinggu>	getPingguListByMap(Map<String,Object> param)throws Exception;
 
@@ -18,7 +18,7 @@ public interface PingguMapper {
 
 	public Integer updatePinggu(Pinggu pinggu)throws Exception;
 
-	public Integer deletePingguById(@Param(value = "id") Long id)throws Exception;
+	public Integer deletePingguById(@Param(value = "id") Integer id)throws Exception;
 
 	public Integer batchDeletePinggu(Map<String,List<String>> params);
 

@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CarbuyMapper {
 
-	public Carbuy getCarbuyById(@Param(value = "id") Long id)throws Exception;
+	public Carbuy getCarbuyById(@Param(value = "id") Integer id)throws Exception;
 
 	public List<Carbuy>	getCarbuyListByMap(Map<String,Object> param)throws Exception;
 
@@ -18,7 +18,7 @@ public interface CarbuyMapper {
 
 	public Integer updateCarbuy(Carbuy carbuy)throws Exception;
 
-	public Integer deleteCarbuyById(@Param(value = "id") Long id)throws Exception;
+	public Integer deleteCarbuyById(@Param(value = "id") Integer id)throws Exception;
 
 	public Integer batchDeleteCarbuy(Map<String,List<String>> params);
 
