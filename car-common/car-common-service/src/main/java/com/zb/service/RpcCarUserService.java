@@ -5,7 +5,7 @@ import com.zb.entity.User;
 
 public interface RpcCarUserService {
 
-    //登录
+    //登录11
     public User getUserLogin(String uloginName, String uPwd) throws Exception;
 
     /**
