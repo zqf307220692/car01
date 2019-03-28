@@ -5,7 +5,7 @@ import com.zb.entity.User;
 
 public interface RpcCarTokenService {
 
-    //生成token
+    //生成token111
     public String gengeratToken(String userAgentString, User user);
 
     //保存token
