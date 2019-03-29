@@ -27,7 +27,7 @@
         </trim>
     </select>
 
-    <select id="getCarrentListByMap" resultType="com.zb.entity.Carrent" parameterType="java.util.Map">
+    <select id="getCarrentListByMap" resultType="com.zb.entity.Carrent">
         select
                 crId as crId,
                 aId as aId,
@@ -89,7 +89,7 @@
         </if>
     </select>
 
-    <select id="getCarrentCountByMap" resultType="Integer"  parameterType="java.util.Map">
+    <select id="getCarrentCountByMap" resultType="Integer" >
         select count(*) from carrent
         <trim prefix="where" prefixOverrides="and | or">
                 <if test="crId != null and crId!=''">
