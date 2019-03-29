@@ -26,6 +26,7 @@
         <module>car-common-dto</module>
         <module>car-common-mapper</module>
         <module>car-common-service</module>
+        <module>../car-chehang</module>
     </modules>
 
 
