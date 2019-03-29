@@ -9,3 +9,5 @@ public interface RpcCarBuyService {
     //查询所有的二手车信息
     public List<Carbuy> findCarBuy(Integer mId,Integer tId,String cbMoney,String cbPaiLiang)throws Exception;
 }
+
+

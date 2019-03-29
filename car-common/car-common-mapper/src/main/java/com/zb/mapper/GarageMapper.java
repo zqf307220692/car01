@@ -12,11 +12,11 @@ public interface GarageMapper {
 
 	public List<Garage>	getGarageListByMap(Map<String,Object> param)throws Exception;//多条件查询车行
 
-	public Integer getGarageCountByMap(Map<String,Object> param)throws Exception;//多条件计算车行数目
+	public Integer getGarageCountByMap(Map<String,Object> param)throws Exception;//计算车行数目
 
 	public Integer insertGarage(Garage garage)throws Exception;//添加车行
 
-	public Integer updateGarage(Garage garage)throws Exception;//更新车行
+	public Integer updateGarage(Garage garage)throws Exception;//更新车行数据
 
 	public Integer deleteGarageById(@Param(value = "id") Long id)throws Exception;//通过id删除车行
 
