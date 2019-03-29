@@ -32,7 +32,11 @@ CREATE TABLE IF NOT EXISTS `CarBuy`(
   `cbTime` VARCHAR(100) NOT NULL COMMENT '发布时间(默认使用当前系统时间)',
   `cbRecommend` INT(11) NOT NULL COMMENT '推荐车源（0为不推荐，1位推荐）',
   `uId` INT(11) NOT NULL COMMENT '用户id，外键',
+<<<<<<< HEAD
   `cbState` INT(11) NOT NULL DEFAULT '1' COMMENT '二手车车辆状态（0车辆注销 1车辆正常 默认1 2已出售）',
+=======
+  `cbState` INT(11) NOT NULL DEFAULT '1' COMMENT '二手车车辆状态（0车辆注销 1车辆正常  2 已经出售 默认1）',
+>>>>>>> origin/master
   PRIMARY KEY (`cbId`)
 ) CHARSET=utf8;
 

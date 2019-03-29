@@ -1,7 +1,7 @@
 package com.zb.vo;
 
 import java.io.Serializable;
-
+//包装
 public class UserTokenVo implements Serializable {
     private String token;
     private long expTime;
