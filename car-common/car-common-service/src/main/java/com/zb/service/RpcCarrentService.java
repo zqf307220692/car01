@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface RpcCarrentService {
 
-    public List<Carrent> getCarrentAll();
+    public List<Carrent> getCarrentAll()throws Exception;
 }
