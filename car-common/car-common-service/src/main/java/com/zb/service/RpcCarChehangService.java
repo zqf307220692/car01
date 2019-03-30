@@ -10,7 +10,7 @@ public interface RpcCarChehangService {
    //添加车行
    public int addGarage(Garage garage);
    //删除车行
-   public int delGarage(Integer gId);
+   public int delGarageById(Integer gId);
    //修改车行信息
    public int updateGarage(Garage garage);
 

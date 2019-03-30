@@ -22,4 +22,6 @@ public interface GarageMapper {
 
 	public Integer batchDeleteGarage(Map<String,List<String>> params);
 
+	public Integer getGarageCountByType(String bType);//通过商家公司类型查车行
+
 }
