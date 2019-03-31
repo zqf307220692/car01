@@ -6,8 +6,12 @@ import java.util.List;
 
 public interface RpcCarBuyService {
 
-    //查询所有的
-    public List<Carbuy> findCarBuy(Integer mId,Integer tId,String cbMoney,String cbPaiLiang);
+    //查询所有的二手车信息
+    public List<Carbuy> findCarBuy(Integer mId,Integer tId,String cbMoney,String cbPaiLiang)throws Exception;
+
+    public int getCount(Integer mId,Integer tId,String cbMoney,String cbPaiLiang)throws Exception;
+
+    public Carbuy getCarBuyById(Integer cbId)throws Exception;
 }
 
 

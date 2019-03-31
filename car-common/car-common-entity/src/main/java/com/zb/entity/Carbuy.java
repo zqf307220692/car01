@@ -59,6 +59,16 @@ public class Carbuy implements Serializable {
     private Integer uId;
     //二手车车辆状态（0车辆注销 1车辆正常 默认1）
     private Integer cbState;
+    private String cbName;
+
+    public String getCbName() {
+        return cbName;
+    }
+
+    public void setCbName(String cbName) {
+        this.cbName = cbName;
+    }
+
     //get set 方法
     public void setCbId (Integer  cbId){
         this.cbId=cbId;

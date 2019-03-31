@@ -32,11 +32,12 @@
                 cbTime as cbTime,
                 cbRecommend as cbRecommend,
                 uId as uId,
-                cbState as cbState
+                cbState as cbState,
+                cbName as cbName
         from carbuy
         <trim prefix="where" prefixOverrides="and | or">
             <if test="id != null">
-                and id=#{id}
+                and cbId=#{id}
             </if>
         </trim>
     </select>
@@ -69,7 +70,8 @@
                 cbTime as cbTime,
                 cbRecommend as cbRecommend,
                 uId as uId,
-                cbState as cbState
+                cbState as cbState,
+                cbName as cbName
         from carbuy
         <trim prefix="where" prefixOverrides="and | or">
                 <if test="cbId != null and cbId!=''">
@@ -153,6 +155,9 @@
                 <if test="cbState != null and cbState!=''">
                     and cbState=#{cbState}
                 </if>
+            <if test="cbName != null and cbName!=''">
+                and cbName=#{cbName}
+            </if>
         </trim>
         <if test="beginPos != null and pageSize != null ">
             limit #{beginPos},#{pageSize}
