@@ -10,6 +10,8 @@ public interface RpcCarBuyService {
     public List<Carbuy> findCarBuy(Integer mId,Integer tId,String cbMoney,String cbPaiLiang)throws Exception;
 
     public int getCount(Integer mId,Integer tId,String cbMoney,String cbPaiLiang)throws Exception;
+
+    public Carbuy getCarBuyById(Integer cbId)throws Exception;
 }
 
 

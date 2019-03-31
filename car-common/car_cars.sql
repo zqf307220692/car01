@@ -64,15 +64,16 @@ CREATE TABLE `CarRent` (
   `crTime` VARCHAR(30) NOT NULL COMMENT'发布时间',
   `uId` INT(11) NOT NULL COMMENT'用户id 外键',
   `crState` INT(11) NOT NULL DEFAULT '1' COMMENT '租用车辆状态，0车辆注销 1车辆正常 默认1',
+  `cbname` varchar(255) NOT NULL COMMENT '车辆名称',
   PRIMARY KEY (`crId`)
 ) CHARSET=utf8;
 
 
-INSERT  INTO `CarRent` VALUES (1,1,1,1,'100','2000',NULL,NULL,NULL,'省油','2019-2-3',1,1),
-(2,2,2,2,'80','1800',NULL,NULL,NULL,'好开','2019-1-3',2,1),
-(3,3,3,3,'100','2500',NULL,NULL,NULL,'省油','2018-12-3',3,1),
-(4,4,4,4,'130','2600',NULL,NULL,NULL,'开心好用','2019-3-3',4,1),
-(5,5,5,5,'100','2900',NULL,NULL,NULL,'省油','2019-3-13',5,0);
+INSERT  INTO `CarRent` VALUES (1,1,1,1,'100','2000',NULL,NULL,NULL,'省油','2019-2-3',1,1,'大众 朗逸 2010 款 1.4TSI运动版'),
+(2,2,2,2,'80','1800',NULL,NULL,NULL,'好开','2019-1-3',2,1,'海马 福美来 2006 款 DX 1.6自动舒适型'),
+(3,3,3,3,'100','2500',NULL,NULL,NULL,'省油','2018-12-3',3,1,'阿尔法·罗密欧 156 2004 款 156 2.0'),
+(4,4,4,4,'130','2600',NULL,NULL,NULL,'开心好用','2019-3-3',4,1,'奔驰C级 2008 款 C 280 时尚型'),
+(5,5,5,5,'100','2900',NULL,NULL,NULL,'省油','2019-3-13',5,0,'奥迪100 1994 款 V6 2.4L MT');
 
 
 
