@@ -13,37 +13,56 @@ public class Manager implements Serializable {
     private String mPwd;
     //邮箱
     private String mEmail;
-    //管理员头像
-    private String mPicture;
-    //get set 方法
-    public void setMId (Integer  mId){
-        this.mId=mId;
+    //管理员手机
+    private String mPhone;
+    //权限
+    private Integer mQuanXian;
+
+    public Integer getmId() {
+        return mId;
     }
-    public  Integer getMId(){
-        return this.mId;
+
+    public void setmId(Integer mId) {
+        this.mId = mId;
     }
-    public void setMName (String  mName){
-        this.mName=mName;
+
+    public String getmName() {
+        return mName;
     }
-    public  String getMName(){
-        return this.mName;
+
+    public void setmName(String mName) {
+        this.mName = mName;
     }
-    public void setMPwd (String  mPwd){
-        this.mPwd=mPwd;
+
+    public String getmPwd() {
+        return mPwd;
     }
-    public  String getMPwd(){
-        return this.mPwd;
+
+    public void setmPwd(String mPwd) {
+        this.mPwd = mPwd;
     }
-    public void setMEmail (String  mEmail){
-        this.mEmail=mEmail;
+
+    public String getmEmail() {
+        return mEmail;
     }
-    public  String getMEmail(){
-        return this.mEmail;
+
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
     }
-    public void setMPicture (String  mPicture){
-        this.mPicture=mPicture;
+
+    public String getmPhone() {
+        return mPhone;
     }
-    public  String getMPicture(){
-        return this.mPicture;
+
+    public void setmPhone(String mPhone) {
+        this.mPhone = mPhone;
+    }
+
+    public Integer getmQuanXian() {
+        return mQuanXian;
+    }
+
+    public void setmQuanXian(Integer mQuanXian) {
+        this.mQuanXian = mQuanXian;
     }
 }

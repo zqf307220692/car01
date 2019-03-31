@@ -55,19 +55,20 @@ VALUES(NULL,2,'2019-03-26 17:19:19','2019-04-26 17:19:19');
 DROP TABLE IF EXISTS Manager;
 CREATE TABLE IF NOT EXISTS Manager(
    `mId` INT PRIMARY KEY AUTO_INCREMENT NOT NULL COMMENT '管理员编号,主键',
-   mName VARCHAR(20)NOT NULL COMMENT '管理员用户名',   
+   mName VARCHAR(20)NOT NULL COMMENT '管理员用户名',
    mPwd VARCHAR(20) NOT NULL COMMENT '管理员密码',
    mEmail VARCHAR(20) NOT NULL COMMENT '邮箱',
-   mPicture VARCHAR(20)NOT NULL COMMENT '管理员头像'
+   mPhone VARCHAR(20) NOT NULL COMMENT '手机',
+   mQuanXian INT NOT NULL COMMENT '权限 0 普通管理员 1 超级管理员'
 )CHARSET=utf8;
 
 
 INSERT INTO Manager
-VALUES(NULL,'root','root','xxx@111.com','static/images/root.jpg');
+VALUES(NULL,'root','root','xxx@111.com','13111111111',1);
 INSERT INTO Manager
-VALUES(NULL,'ok','ok','xxx@222.com','static/images/ok.jpg');
+VALUES(NULL,'ok','ok','xxx@222.com','13122222222',0);
 INSERT INTO Manager
-VALUES(NULL,'admin','admin','xxx@333.com','static/images/admin.jpg');
+VALUES(NULL,'admin','admin','xxx@333.com','13133333333',0);
 
 #SELECT *FROM Manager;
 

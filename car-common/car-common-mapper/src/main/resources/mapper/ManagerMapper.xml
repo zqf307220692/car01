@@ -10,7 +10,8 @@
                 mName as mName,
                 mPwd as mPwd,
                 mEmail as mEmail,
-                mPicture as mPicture
+                mPhone as mPhone,
+                mQuanXian as mQuanXian
         from manager
         <trim prefix="where" prefixOverrides="and | or">
             <if test="id != null">
@@ -25,7 +26,8 @@
                 mName as mName,
                 mPwd as mPwd,
                 mEmail as mEmail,
-                mPicture as mPicture
+                mPhone as mPhone,
+                mQuanXian as mQuanXian
         from manager
         <trim prefix="where" prefixOverrides="and | or">
                 <if test="mId != null and mId!=''">
@@ -40,9 +42,13 @@
                 <if test="mEmail != null and mEmail!=''">
                     and mEmail=#{mEmail}
                 </if>
-                <if test="mPicture != null and mPicture!=''">
-                    and mPicture=#{mPicture}
+                <if test="mPhone != null and mPhone!=''">
+                and mPhone=#{mPhone}
+                 </if>
+                <if test="mQuanXian != null and mQuanXian!=''">
+                and mQuanXian=#{mQuanXian}
                 </if>
+
         </trim>
         <if test="beginPos != null and pageSize != null ">
             limit #{beginPos},#{pageSize}
@@ -64,27 +70,35 @@
                 <if test="mEmail != null and mEmail!=''">
                     and mEmail=#{mEmail}
                 </if>
-                <if test="mPicture != null and mPicture!=''">
-                    and mPicture=#{mPicture}
-                </if>
+               <if test="mPhone != null and mPhone!=''">
+                and mPhone=#{mPhone}
+                 </if>
+                <if test="mQuanXian != null and mQuanXian!=''">
+                and mQuanXian=#{mQuanXian}
+               </if>
+
         </trim>
     </select>
 
+    <!--插入管理员-->
     <insert id="insertManager" parameterType="com.zb.entity.Manager">
         insert into manager(
                         mId,
                         mName,
                         mPwd,
                         mEmail,
-                        mPicture)
+                        mPhone,
+                        mQuanXian)
         values(
                      #{mId},
                      #{mName},
                      #{mPwd},
                      #{mEmail},
-                    #{mPicture})
+                    #{mPhone},
+                    #{mQuanXian})
     </insert>
 
+    <!--修改管理员-->
     <update id="updateManager" parameterType="com.zb.entity.Manager">
         update manager
         <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
@@ -100,8 +114,11 @@
                         <if test="mEmail != null and mEmail!=''">
                             mEmail=#{mEmail},
                         </if>
-                        <if test="mPicture != null and mPicture!=''">
-                            mPicture=#{mPicture}
+                        <if test="mPhone != null and mPhone!=''">
+                            and mPhone=#{mPhone},
+                        </if>
+                        <if test="mQuanXian != null and mQuanXian!=''">
+                            and mQuanXian=#{mQuanXian}
                         </if>
         </trim>
     </update>
