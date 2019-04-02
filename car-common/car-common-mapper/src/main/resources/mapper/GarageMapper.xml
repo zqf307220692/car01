@@ -3,31 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zb.mapper.GarageMapper">
-    <resultMap id="basicResultMap" type="com.zb.entity.Garage">
-        <id column="gId" property="gId"></id>
-        <result column="gName" property="gName"></result>
-        <result column="gPerson" property="gPerson"></result>
-        <result column="gSaleName" property="gSaleName"></result>
-        <result column="gSalePicture" property="gSalePicture"></result>
-        <result column="gTel" property="gTel"></result>
-        <result column="gPhone" property="gPhone"></result>
-        <result column="gAddress" property="gAddress"></result>
-        <result column="gIntroduce" property="gIntroduce"></result>
-        <result column="gPicture" property="gIntroduce"></result>
-        <result column="gIntroduce" property="gIntroduce"></result>
-        <result column="gIntroduce" property="gIntroduce"></result>
-        <result column="gIntroduce" property="gIntroduce"></result>
-        <result column="gIntroduce" property="gIntroduce"></result>
-        <result column="gIntroduce" property="gIntroduce"></result>
-
-        <association property="housetype" javaType="com.zb.entity.Housetype">
-            <result column="typeId" property="typeId"></result>
-            <result column="typeName" property="typeName"></result>
-        </association>
-    </resultMap>
-
-
-
     <select id="getGarageById" resultType="com.zb.entity.Garage">
         select
                 gId as gId,
