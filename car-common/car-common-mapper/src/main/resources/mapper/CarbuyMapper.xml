@@ -5,41 +5,7 @@
 <mapper namespace="com.zb.mapper.CarbuyMapper">
 
     <select id="getCarbuyById" resultType="com.zb.entity.Carbuy">
-        select
-                cbId as cbId,
-                aId as aId,
-                mId as mId,
-                tId as tId,
-                cbMoney as cbMoney,
-                cbOfferMoney as cbOfferMoney,
-                cbPurchasetax as cbPurchasetax,
-                cbJieSheng as cbJieSheng,
-                cbColor as cbColor,
-                cbPaiLiang as cbPaiLiang,
-                cbBianSu as cbBianSu,
-                cbDate as cbDate,
-                cbLiCheng as cbLiCheng,
-                cbNeiAndWai as cbNeiAndWai,
-                cbBiaozhun as cbBiaozhun,
-                cbCompulsoryTime as cbCompulsoryTime,
-                cbValidity as cbValidity,
-                cbPicture1 as cbPicture1,
-                cbPicture2 as cbPicture2,
-                cbPicture3 as cbPicture3,
-                cbPicture4 as cbPicture4,
-                cbDescribe as cbDescribe,
-                cbPopular as cbPopular,
-                cbTime as cbTime,
-                cbRecommend as cbRecommend,
-                uId as uId,
-                cbState as cbState,
-                cbName as cbName
-        from carbuy
-        <trim prefix="where" prefixOverrides="and | or">
-            <if test="id != null">
-                and cbId=#{id}
-            </if>
-        </trim>
+       select *from carbuy where cbId=#{id}
     </select>
 
     <select id="getCarbuyListByMap" resultType="com.zb.entity.Carbuy" parameterType="java.util.Map">
@@ -248,6 +214,10 @@
                 <if test="cbState != null and cbState!=''">
                     and cbState=#{cbState}
                 </if>
+            <if test="cbName != null and cbName!=''">
+                and cbName=#{cbName}
+            </if>
+
         </trim>
     </select>
 
@@ -279,7 +249,8 @@
                         cbTime,
                         cbRecommend,
                         uId,
-                        cbState)
+                        cbState,
+                         cbName)
         values(
                      #{cbId},
                      #{aId},
@@ -307,7 +278,8 @@
                      #{cbTime},
                      #{cbRecommend},
                      #{uId},
-                    #{cbState})
+                    #{cbState},
+                    #{cbName})
     </insert>
 
     <update id="updateCarbuy" parameterType="com.zb.entity.Carbuy">
@@ -394,6 +366,9 @@
                         <if test="cbState != null and cbState!=''">
                             cbState=#{cbState}
                         </if>
+            <if test="cbName != null and cbName!=''">
+                cbName=#{cbName}
+            </if>
         </trim>
     </update>
 </mapper>

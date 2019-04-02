@@ -15,14 +15,18 @@
                 crPicture1 as crPicture1,
                 crPicture2 as crPicture2,
                 crPicture3 as crPicture3,
+                crPicture4 as crPicture4,
+                crPicture5 as crPicture5,
                 crDescribe as crDescribe,
                 crTime as crTime,
                 uId as uId,
-                crState as crState
+                crState as crState,
+                crName as crname,
+                crType as crType
         from carrent
         <trim prefix="where" prefixOverrides="and | or">
             <if test="id != null">
-                and id=#{id}
+                and crId=#{id}
             </if>
         </trim>
     </select>
@@ -38,10 +42,15 @@
                 crPicture1 as crPicture1,
                 crPicture2 as crPicture2,
                 crPicture3 as crPicture3,
+        crPicture4 as crPicture4,
+        crPicture5 as crPicture5,
                 crDescribe as crDescribe,
                 crTime as crTime,
                 uId as uId,
-                crState as crState
+                crState as crState,
+        crName as crname,
+        crType as crType
+
         from carrent
         <trim prefix="where" prefixOverrides="and | or">
                 <if test="crId != null and crId!=''">
@@ -71,6 +80,12 @@
                 <if test="crPicture3 != null and crPicture3!=''">
                     and crPicture3=#{crPicture3}
                 </if>
+            <if test="crPicture4 != null and crPicture4!=''">
+                and crPicture4=#{crPicture4}
+            </if>
+            <if test="crPicture5 != null and crPicture5!=''">
+                and crPicture5=#{crPicture5}
+            </if>
                 <if test="crDescribe != null and crDescribe!=''">
                     and crDescribe=#{crDescribe}
                 </if>
@@ -83,6 +98,12 @@
                 <if test="crState != null and crState!=''">
                     and crState=#{crState}
                 </if>
+            <if test="crName != null and crName!=''">
+                and crName=#{crName}
+            </if>
+            <if test="crType != null and crType!=''">
+                and crType=#{crType}
+            </if>
         </trim>
         <if test="beginPos != null and pageSize != null ">
             limit #{beginPos},#{pageSize}
@@ -119,6 +140,12 @@
                 <if test="crPicture3 != null and crPicture3!=''">
                     and crPicture3=#{crPicture3}
                 </if>
+            <if test="crPicture4 != null and crPicture4!=''">
+                and crPicture4=#{crPicture4}
+            </if>
+            <if test="crPicture5 != null and crPicture5!=''">
+                and crPicture5=#{crPicture5}
+            </if>
                 <if test="crDescribe != null and crDescribe!=''">
                     and crDescribe=#{crDescribe}
                 </if>
@@ -131,6 +158,12 @@
                 <if test="crState != null and crState!=''">
                     and crState=#{crState}
                 </if>
+            <if test="crName != null and crName!=''">
+                and crName=#{crName}
+            </if>
+            <if test="crType != null and crType!=''">
+                and crType=#{crType}
+            </if>
         </trim>
     </select>
 
@@ -145,10 +178,14 @@
                         crPicture1,
                         crPicture2,
                         crPicture3,
+                        crPicture4,
+                        crPicture5,
                         crDescribe,
                         crTime,
                         uId,
-                        crState)
+                        crState,
+                        crName,
+                        crType)
         values(
                      #{crId},
                      #{aId},
@@ -159,54 +196,70 @@
                      #{crPicture1},
                      #{crPicture2},
                      #{crPicture3},
+                      #{crPicture4},
+                       #{crPicture5},
                      #{crDescribe},
                      #{crTime},
                      #{uId},
-                    #{crState})
+                    #{crState},
+                    #{crName},
+                    #(crType))
     </insert>
 
     <update id="updateCarrent" parameterType="com.zb.entity.Carrent">
         update carrent
         <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
-                        <if test="crId != null and crId!=''">
-                            crId=#{crId},
-                        </if>
-                        <if test="aId != null and aId!=''">
-                            aId=#{aId},
-                        </if>
-                        <if test="mId != null and mId!=''">
-                            mId=#{mId},
-                        </if>
-                        <if test="tId != null and tId!=''">
-                            tId=#{tId},
-                        </if>
-                        <if test="crDateMoney != null and crDateMoney!=''">
-                            crDateMoney=#{crDateMoney},
-                        </if>
-                        <if test="crMonMoney != null and crMonMoney!=''">
-                            crMonMoney=#{crMonMoney},
-                        </if>
-                        <if test="crPicture1 != null and crPicture1!=''">
-                            crPicture1=#{crPicture1},
-                        </if>
-                        <if test="crPicture2 != null and crPicture2!=''">
-                            crPicture2=#{crPicture2},
-                        </if>
-                        <if test="crPicture3 != null and crPicture3!=''">
-                            crPicture3=#{crPicture3},
-                        </if>
-                        <if test="crDescribe != null and crDescribe!=''">
-                            crDescribe=#{crDescribe},
-                        </if>
-                        <if test="crTime != null and crTime!=''">
-                            crTime=#{crTime},
-                        </if>
-                        <if test="uId != null and uId!=''">
-                            uId=#{uId},
-                        </if>
-                        <if test="crState != null and crState!=''">
-                            crState=#{crState}
-                        </if>
+            <if test="crId != null and crId!=''">
+                crId=#{crId},
+            </if>
+            <if test="aId != null and aId!=''">
+                aId=#{aId},
+            </if>
+            <if test="mId != null and mId!=''">
+                mId=#{mId},
+            </if>
+            <if test="tId != null and tId!=''">
+                tId=#{tId},
+            </if>
+            <if test="crDateMoney != null and crDateMoney!=''">
+                crDateMoney=#{crDateMoney},
+            </if>
+            <if test="crMonMoney != null and crMonMoney!=''">
+                crMonMoney=#{crMonMoney},
+            </if>
+            <if test="crPicture1 != null and crPicture1!=''">
+                crPicture1=#{crPicture1},
+            </if>
+            <if test="crPicture2 != null and crPicture2!=''">
+                crPicture2=#{crPicture2},
+            </if>
+            <if test="crPicture3 != null and crPicture3!=''">
+                crPicture3=#{crPicture3},
+            </if>
+            <if test="crPicture4 != null and crPicture4!=''">
+                and crPicture4=#{crPicture4}
+            </if>
+            <if test="crPicture5 != null and crPicture5!=''">
+                and crPicture5=#{crPicture5}
+            </if>
+            <if test="crDescribe != null and crDescribe!=''">
+                crDescribe=#{crDescribe},
+            </if>
+            <if test="crTime != null and crTime!=''">
+                crTime=#{crTime},
+            </if>
+            <if test="uId != null and uId!=''">
+                uId=#{uId},
+            </if>
+            <if test="crState != null and crState!=''">
+                crState=#{crState}
+            </if>
+            <if test="crName != null and crName!=''">
+                and crName=#{crName}
+            </if>
+            <if test="crType != null and crType!=''">
+                crType=#{crType}
+            </if>
         </trim>
     </update>
 </mapper>

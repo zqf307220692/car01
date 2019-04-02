@@ -23,6 +23,10 @@ public class Carrent implements Serializable {
     private String crPicture2;
     //车辆图片03
     private String crPicture3;
+    //车辆图片04
+    private String crPicture4;
+    //车辆图片05
+    private String crPicture5;
     //补充描述
     private String crDescribe;
     //发布时间
@@ -31,6 +35,43 @@ public class Carrent implements Serializable {
     private Integer uId;
     //租用车辆状态，0车辆注销 1车辆正常 默认1
     private Integer crState;
+    //租车标题
+    private String crName;
+    //租车简介
+    private String crType;
+
+    public String getCrPicture4() {
+        return crPicture4;
+    }
+
+    public void setCrPicture4(String crPicture4) {
+        this.crPicture4 = crPicture4;
+    }
+
+    public String getCrPicture5() {
+        return crPicture5;
+    }
+
+    public void setCrPicture5(String crPicture5) {
+        this.crPicture5 = crPicture5;
+    }
+
+    public String getCrType() {
+        return crType;
+    }
+
+    public void setCrType(String crType) {
+        this.crType = crType;
+    }
+
+    public String getCrName() {
+        return crName;
+    }
+
+    public void setCrName(String crName) {
+        this.crName = crName;
+    }
+
     //get set 方法
     public void setCrId (Integer  crId){
         this.crId=crId;
